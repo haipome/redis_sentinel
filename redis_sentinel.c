@@ -118,7 +118,7 @@ int redis_sentinel_get_master_addr(redis_sentinel *context, redis_addr *addr)
     return -1;
 }
 
-char *get_slave_info(size_t elements, redisReply **element, char *key)
+static char *get_slave_info(size_t elements, redisReply **element, char *key)
 {
     for (size_t i = 0; i < elements; i += 2){
         if (strcmp(element[i]->str, key) == 0) {
